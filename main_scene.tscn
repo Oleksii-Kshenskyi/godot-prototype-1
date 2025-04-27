@@ -1,18 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://fsdr6myail8d"]
+[gd_scene load_steps=3 format=3 uid="uid://dwwskbq0p001s"]
 
-[ext_resource type="PackedScene" uid="uid://7ed8cs30kroc" path="res://player.tscn" id="1_2c62f"]
-[ext_resource type="PackedScene" uid="uid://b6iw1147u0537" path="res://wood.tscn" id="2_gyfs4"]
+[ext_resource type="PackedScene" uid="uid://b6iw1147u0537" path="res://wood.tscn" id="3_i3pqv"]
+[ext_resource type="Script" uid="uid://t42kqc1a88vp" path="res://hud.gd" id="4_hqtel"]
 
 [node name="MainScene" type="Node2D"]
 
-[node name="PlayerScene" parent="." instance=ExtResource("1_2c62f")]
-position = Vector2(353, 153)
+[node name="HUD" type="CanvasLayer" parent="."]
+offset = Vector2(30, 600)
+transform = Transform2D(1, 0, 0, 1, 30, 600)
+script = ExtResource("4_hqtel")
 
-[node name="WoodScene" parent="." instance=ExtResource("2_gyfs4")]
-position = Vector2(64, 59)
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD"]
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="WoodScene2" parent="." instance=ExtResource("2_gyfs4")]
-position = Vector2(906, 132)
+[node name="WoodCountLabel" type="Label" parent="HUD/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Wood: 0"
 
-[node name="WoodScene3" parent="." instance=ExtResource("2_gyfs4")]
-position = Vector2(621, 421)
+[node name="WoodScene" parent="." instance=ExtResource("3_i3pqv")]
+position = Vector2(1371, 719)
+
+[node name="WoodScene2" parent="." instance=ExtResource("3_i3pqv")]
+position = Vector2(1403, 175)
+
+[node name="WoodScene3" parent="." instance=ExtResource("3_i3pqv")]
+position = Vector2(234, 733)

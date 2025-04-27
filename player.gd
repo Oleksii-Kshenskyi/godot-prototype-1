@@ -1,8 +1,12 @@
 extends Sprite2D
 @export var speed = 400.0
 @onready var interact_area = $InteractArea
+@export var target_texture_size = Vector2(64, 64)
 
 func _ready() -> void:
+    var texture_size = texture.get_size()
+    scale = target_texture_size / texture_size
+    
     var screen_size = get_viewport_rect().size
     position = screen_size * 0.5
 

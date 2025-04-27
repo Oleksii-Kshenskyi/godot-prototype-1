@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b1ilq2tifguj4" path="res://player.png" id="1_onrkg"]
 [ext_resource type="Script" uid="uid://bg7h07yjr2d4i" path="res://player.gd" id="2_i3pqv"]
-[ext_resource type="PackedScene" uid="uid://b6iw1147u0537" path="res://wood.tscn" id="3_i3pqv"]
+[ext_resource type="Script" uid="uid://cd5aog6oknx54" path="res://camera_2d.gd" id="3_i3pqv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
 radius = 20.0
@@ -13,18 +13,12 @@ radius = 20.0
 texture = ExtResource("1_onrkg")
 script = ExtResource("2_i3pqv")
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+script = ExtResource("3_i3pqv")
+
 [node name="InteractArea" type="Area2D" parent="Player"]
 collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/InteractArea"]
 shape = SubResource("CircleShape2D_onrkg")
-
-[node name="WoodScene" parent="." instance=ExtResource("3_i3pqv")]
-position = Vector2(1371, 719)
-
-[node name="WoodScene2" parent="." instance=ExtResource("3_i3pqv")]
-position = Vector2(1403, 175)
-
-[node name="WoodScene3" parent="." instance=ExtResource("3_i3pqv")]
-position = Vector2(234, 733)
